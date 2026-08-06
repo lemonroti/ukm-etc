@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive frontend prototype for the UKM Mangrove Conservation for Planetary Health research project.">
+  <meta name="theme-color" content="#174c3c">
+  <title>UKM Mangrove Project</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="./css/custom.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-mangrove: #174c3c;
+      --color-coastal: #287d75;
+      --color-sand: #d7a84b;
+      --color-mist: #f4f7f2;
+      --color-cream: #faf7ef;
+      --color-ink: #17221d;
+      --color-muted: #66736c;
+      --color-line: #dde5df;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" v-cloak></div>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
