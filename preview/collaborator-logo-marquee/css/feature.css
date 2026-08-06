@@ -1,0 +1,20 @@
+.partner-section { overflow: hidden; background: #fff; padding: 5rem 0; }
+.partner-marquee-shell { position: relative; display: grid; gap: 1rem; }
+.partner-marquee-shell::before,
+.partner-marquee-shell::after { content: ''; position: absolute; inset-block: 0; z-index: 2; width: clamp(2.5rem, 9vw, 9rem); pointer-events: none; }
+.partner-marquee-shell::before { left: 0; background: linear-gradient(90deg, #fff 12%, rgba(255,255,255,0)); }
+.partner-marquee-shell::after { right: 0; background: linear-gradient(270deg, #fff 12%, rgba(255,255,255,0)); }
+.partner-marquee { overflow: hidden; padding: .35rem 0; }
+.partner-marquee-track { display: flex; width: max-content; gap: 1rem; animation: partner-scroll 30s linear infinite; will-change: transform; }
+.partner-marquee-track--reverse { animation-direction: reverse; animation-duration: 34s; }
+.partner-marquee:hover .partner-marquee-track,
+.partner-marquee:focus-within .partner-marquee-track { animation-play-state: paused; }
+.partner-logo-card { display: grid; place-items: center; width: clamp(14rem, 24vw, 18rem); height: 7rem; flex: 0 0 auto; border: 1px solid #dde5df; border-radius: 1rem; background: #fff; box-shadow: 0 10px 28px rgba(23,76,60,.06); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.partner-logo-card:hover,
+.partner-logo-card:focus-visible { transform: translateY(-3px) scale(1.025); border-color: #287d75; box-shadow: 0 16px 36px rgba(23,76,60,.14); outline: 3px solid rgba(40,125,117,.22); outline-offset: 3px; }
+.partner-logo-image { width: 80%; max-width: 15rem; height: 4.5rem; object-fit: contain; filter: grayscale(1); opacity: .62; transition: filter .25s ease, opacity .25s ease; }
+.partner-logo-card:hover .partner-logo-image,
+.partner-logo-card:focus-visible .partner-logo-image { filter: grayscale(0); opacity: 1; }
+@keyframes partner-scroll { from { transform: translateX(0); } to { transform: translateX(calc(-25% - .25rem)); } }
+@media (max-width: 640px) { .partner-section { padding: 4rem 0; } .partner-logo-card { width: 13rem; height: 6.25rem; } .partner-logo-image { height: 4rem; } }
+@media (prefers-reduced-motion: reduce) { .partner-marquee { overflow-x: auto; scrollbar-width: thin; } .partner-marquee-track, .partner-marquee-track--reverse { animation: none; transform: none; } }
