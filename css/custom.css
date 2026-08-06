@@ -1,0 +1,14 @@
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #faf7ef; }
+[v-cloak] { display: none; }
+::selection { background: #d7a84b; color: #17221d; }
+a, button, input, select, textarea { outline-color: #287d75; }
+.gallery-columns { columns: 1; column-gap: 1rem; }
+.gallery-columns > button { break-inside: avoid; margin-bottom: 1rem; }
+@media (min-width: 640px) { .gallery-columns { columns: 2; } }
+@media (min-width: 1024px) { .gallery-columns { columns: 3; } }
+.prose-copy p:first-child::first-letter { float: left; margin-right: .5rem; font-size: 4rem; line-height: .8; font-weight: 700; color: #174c3c; }
+.router-link-active:not(header a:first-child) { color: #287d75; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
