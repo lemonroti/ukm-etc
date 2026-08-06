@@ -18,9 +18,16 @@ const PubCard = {
   template: `<router-link :to="'/publications/'+item.slug" class="block rounded-2xl border border-line bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"><span class="rounded-full bg-mist px-3 py-1 text-xs font-semibold text-coastal">{{item.category}}</span><h3 class="mt-4 text-xl font-bold text-ink">{{item.title}}</h3><p class="mt-3 text-sm text-muted">{{item.authors}} · {{item.year}}</p></router-link>`,
 };
 
+const purposeThemes = [
+  { label: 'Biodiversity', icon: 'leaf' },
+  { label: 'Climate Resilience', icon: 'wind' },
+  { label: 'Community Well-being', icon: 'users' },
+  { label: 'Human Health', icon: 'heart-pulse' },
+];
+
 export const HomePageFeature = {
   components: { SectionHeading, WorkCard, MediaCard, PubCard, CollaboratorMarquee },
-  setup() { return { workPackages, mediaItems, publications }; },
+  setup() { return { workPackages, mediaItems, publications, purposeThemes }; },
   template: `
     <main>
       <section class="relative min-h-[82vh] overflow-hidden bg-ink text-white">
@@ -28,7 +35,30 @@ export const HomePageFeature = {
         <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent"></div>
         <div class="relative mx-auto flex min-h-[82vh] max-w-7xl items-center px-5 py-20"><div class="max-w-3xl"><p class="text-sm font-semibold uppercase tracking-[.22em] text-sand">International Research Project · 2026–2029</p><h1 class="mt-5 text-5xl font-bold leading-[1.05] md:text-7xl">Mangrove Conservation for Planetary Health</h1><p class="mt-6 max-w-2xl text-lg text-white/80">Connecting healthy coastal ecosystems with climate resilience, community well-being and human health through interdisciplinary research and collaboration.</p><div class="mt-8 flex flex-wrap gap-4"><router-link to="/research" class="rounded-full bg-sand px-6 py-3 font-semibold text-ink">Explore the Research</router-link><router-link to="/about" class="rounded-full border border-white/40 px-6 py-3 font-semibold">About the Project</router-link></div></div></div>
       </section>
-      <section class="mx-auto max-w-7xl px-5 py-20"><div class="grid gap-12 md:grid-cols-2"><div><SectionHeading eyebrow="Our Purpose" title="Conserving mangroves means protecting connected systems" description="The project examines mangroves not as isolated habitats, but as living infrastructure that supports biodiversity, climate stability, livelihoods and public health." /><div class="mt-8 grid grid-cols-2 gap-3"><span v-for="x in ['Biodiversity','Climate Resilience','Community Well-being','Human Health']" :key="x" class="rounded-xl bg-mist p-4 text-sm font-semibold text-mangrove">{{x}}</span></div></div><img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1000&q=80" alt="Green coastal ecosystem" class="h-full min-h-80 w-full rounded-3xl object-cover"></div></section>
+      <section class="purpose-section">
+        <div class="purpose-layout">
+          <div class="purpose-copy">
+            <SectionHeading eyebrow="Our Purpose" title="Conserving mangroves means protecting connected systems" description="The project examines mangroves not as isolated habitats, but as living infrastructure that supports biodiversity, climate stability, livelihoods and public health." />
+            <ul class="purpose-theme-grid" role="list" aria-label="Connected areas of impact">
+              <li v-for="(theme, index) in purposeThemes" :key="theme.label" class="purpose-theme-card">
+                <span class="purpose-theme-icon" aria-hidden="true"><i :data-lucide="theme.icon"></i></span>
+                <span class="purpose-theme-label">{{theme.label}}</span>
+                <span class="purpose-theme-number" aria-hidden="true">0{{index + 1}}</span>
+              </li>
+            </ul>
+          </div>
+          <figure class="purpose-visual">
+            <div class="purpose-image-frame">
+              <img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1000&q=80" alt="Dense green coastal vegetation representing a connected mangrove ecosystem" class="purpose-image">
+              <div class="purpose-image-note">
+                <span class="purpose-image-note-icon" aria-hidden="true"><i data-lucide="network"></i></span>
+                <span><strong>One living system</strong><small>Nature, climate and people</small></span>
+              </div>
+            </div>
+            <figcaption>Planetary health begins with connected ecosystems.</figcaption>
+          </figure>
+        </div>
+      </section>
       <section class="bg-mist py-20"><div class="mx-auto max-w-7xl px-5"><SectionHeading eyebrow="Research Framework" title="Five connected work packages" description="Each work package addresses a major part of the programme while contributing to shared outcomes." /><div class="mt-10 grid gap-5 md:grid-cols-3"><WorkCard v-for="w in workPackages.slice(0,3)" :key="w.slug" :item="w" /></div></div></section>
       <section class="mx-auto max-w-7xl px-5 py-20"><SectionHeading eyebrow="Latest" title="Project updates" /><div class="mt-10 grid gap-6 md:grid-cols-3"><MediaCard v-for="m in mediaItems.slice(0,3)" :key="m.slug" :item="m" /></div></section>
       <section class="bg-cream py-20"><div class="mx-auto max-w-7xl px-5"><SectionHeading eyebrow="Knowledge" title="Featured publications and resources" /><div class="mt-10 grid gap-5 md:grid-cols-3"><PubCard v-for="p in publications.slice(0,3)" :key="p.slug" :item="p" /></div></div></section>
