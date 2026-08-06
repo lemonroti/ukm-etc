@@ -16,5 +16,6 @@ const App = {
 };
 
 const app = Vue.createApp(App);
+app.config.globalProperties.scrollTo = window.scrollTo.bind(window);
 app.use(router);
 app.mount('#app');
