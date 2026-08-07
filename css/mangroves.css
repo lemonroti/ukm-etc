@@ -1,0 +1,450 @@
+.mangroves-story {
+  background: #faf7ef;
+  color: #17221d;
+}
+
+.mangroves-section-nav {
+  position: sticky;
+  top: 76px;
+  z-index: 30;
+  padding: .45rem 1.25rem;
+  background: rgba(250,247,239,.94);
+  border-bottom: 1px solid rgba(23,76,60,.12);
+  backdrop-filter: blur(12px);
+}
+
+.mangroves-section-nav-inner {
+  display: flex;
+  gap: .35rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: .25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-radius: 999px;
+  background: #d7a84b;
+}
+
+.mangroves-section-nav-inner::-webkit-scrollbar { display: none; }
+
+.mangroves-section-link {
+  flex: 0 0 auto;
+  padding: .35rem .7rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #294238;
+  font-size: .76rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mangroves-section-link:hover,
+.mangroves-section-link:focus-visible {
+  background: rgba(250,247,239,.6);
+  color: #17221d;
+}
+
+.mangroves-editorial-hero {
+  overflow: hidden;
+  padding: clamp(4rem, 7vw, 7rem) 0 clamp(4rem, 8vw, 7rem);
+}
+
+.mangroves-hero-copy {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 2.75rem;
+  text-align: center;
+}
+
+.mangroves-kicker,
+.mangroves-eyebrow {
+  margin: 0;
+  color: #287d75;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.mangroves-hero-copy h1 {
+  margin: 1rem auto 0;
+  max-width: 15ch;
+  font-size: clamp(3.6rem, 8vw, 8.5rem);
+  font-weight: 700;
+  letter-spacing: -.055em;
+  line-height: .9;
+}
+
+.mangroves-hero-intro {
+  max-width: 47rem;
+  margin: 1.7rem auto 0;
+  color: #66736c;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.mangrove-image-marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.mangrove-image-track {
+  display: flex;
+  width: max-content;
+  gap: .75rem;
+  padding: 0 .75rem;
+  animation: mangrove-marquee 40s linear infinite;
+  will-change: transform;
+}
+
+.mangrove-image-marquee:hover .mangrove-image-track,
+.mangrove-image-marquee:focus-within .mangrove-image-track {
+  animation-play-state: paused;
+}
+
+.mangrove-image-card {
+  width: clamp(16rem, 24vw, 28rem);
+  aspect-ratio: 4 / 5;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 1.4rem;
+  background: #e7f0ea;
+}
+
+.mangrove-image-card:nth-child(3n) { aspect-ratio: 1 / 1.18; }
+.mangrove-image-card:nth-child(4n) { aspect-ratio: 1 / 1.1; }
+
+.mangrove-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .7s ease;
+}
+
+.mangrove-image-card:hover img { transform: scale(1.035); }
+
+@keyframes mangrove-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - .375rem)); }
+}
+
+.mangroves-story-section {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: clamp(5rem, 9vw, 8rem) 1.25rem;
+  scroll-margin-top: 8.5rem;
+}
+
+.mangroves-story-section--split {
+  display: grid;
+  grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr);
+  gap: clamp(2rem, 8vw, 8rem);
+}
+
+.mangroves-story-section h2,
+.mangroves-section-heading h2,
+.mangroves-health-copy h2,
+.mangroves-malaysia-copy h2,
+.mangroves-conservation-copy h2,
+.mangroves-research-cta h2 {
+  margin: .9rem 0 0;
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+
+.mangroves-body-copy {
+  max-width: 45rem;
+  color: #526159;
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  line-height: 1.8;
+}
+
+.mangroves-body-copy p + p { margin-top: 1.5rem; }
+
+.mangroves-section-heading {
+  max-width: 52rem;
+}
+
+.mangroves-section-heading > p:last-child {
+  max-width: 42rem;
+  margin-top: 1.25rem;
+  color: #66736c;
+  line-height: 1.7;
+}
+
+.mangroves-value-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.mangroves-value-card {
+  min-height: 18rem;
+  padding: 1.5rem;
+  border: 1px solid #dde5df;
+  border-radius: 1.5rem;
+  background: #fff;
+}
+
+.mangroves-value-icon {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border-radius: 1rem;
+  background: #e7f0ea;
+  color: #174c3c;
+}
+
+.mangroves-value-card h3 {
+  margin-top: 3.6rem;
+  font-size: 1.25rem;
+}
+
+.mangroves-value-card p {
+  margin-top: .75rem;
+  color: #66736c;
+  line-height: 1.6;
+}
+
+.mangroves-health-band,
+.mangroves-conservation-section {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  align-items: stretch;
+  background: #174c3c;
+  color: #fff;
+  scroll-margin-top: 8.5rem;
+}
+
+.mangroves-health-media,
+.mangroves-conservation-visual {
+  min-height: 42rem;
+}
+
+.mangroves-health-media img,
+.mangroves-conservation-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mangroves-health-copy,
+.mangroves-conservation-copy {
+  align-self: center;
+  max-width: 42rem;
+  padding: clamp(3rem, 7vw, 7rem);
+}
+
+.mangroves-eyebrow--light { color: #d7a84b; }
+
+.mangroves-health-copy > p:not(.mangroves-eyebrow),
+.mangroves-conservation-copy > p:not(.mangroves-eyebrow) {
+  margin-top: 1.5rem;
+  color: rgba(255,255,255,.76);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.mangroves-health-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin-top: 2rem;
+}
+
+.mangroves-health-tags span {
+  padding: .55rem .8rem;
+  border: 1px solid rgba(255,255,255,.24);
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.mangroves-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.mangroves-stat {
+  padding: 2rem 0 1rem;
+  border-top: 1px solid #aebeb3;
+}
+
+.mangroves-stat strong {
+  display: block;
+  color: #174c3c;
+  font-size: clamp(3rem, 6vw, 6rem);
+  letter-spacing: -.05em;
+  line-height: .95;
+}
+
+.mangroves-stat p {
+  max-width: 24rem;
+  margin-top: 1rem;
+  color: #66736c;
+  line-height: 1.6;
+}
+
+.mangroves-placeholder-note {
+  margin-top: 2rem;
+  padding: 1rem 1.2rem;
+  border-radius: 1rem;
+  background: #fff3d7;
+  color: #6f5b29;
+  font-size: .8rem;
+  line-height: 1.5;
+}
+
+.mangroves-malaysia-section {
+  display: grid;
+  grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr);
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: center;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: clamp(5rem, 9vw, 8rem) 1.25rem;
+  scroll-margin-top: 8.5rem;
+}
+
+.mangroves-malaysia-copy p:not(.mangroves-eyebrow) {
+  margin-top: 1.25rem;
+  color: #66736c;
+  line-height: 1.75;
+}
+
+.mangroves-map-placeholder {
+  position: relative;
+  display: grid;
+  min-height: 34rem;
+  place-items: center;
+  padding: 2rem;
+  overflow: hidden;
+  border-radius: 2rem;
+  background:
+    radial-gradient(circle at 68% 26%, rgba(215,168,75,.85) 0 2%, transparent 2.2%),
+    radial-gradient(circle at 44% 58%, rgba(40,125,117,.25), transparent 34%),
+    linear-gradient(135deg,#dbe9e1,#f4f7f2 55%,#e7efe9);
+  text-align: center;
+}
+
+.mangroves-map-placeholder::before,
+.mangroves-map-placeholder::after {
+  content: '';
+  position: absolute;
+  width: 56%;
+  height: 24%;
+  border: 2px solid rgba(23,76,60,.22);
+  border-radius: 48% 52% 58% 42%;
+  transform: rotate(-18deg);
+}
+
+.mangroves-map-placeholder::after {
+  width: 24%;
+  height: 38%;
+  transform: translate(65%,35%) rotate(16deg);
+}
+
+.mangroves-map-pin {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  place-items: center;
+  margin-bottom: -7rem;
+  border-radius: 50%;
+  background: #d7a84b;
+  color: #17221d;
+}
+
+.mangroves-map-placeholder strong,
+.mangroves-map-placeholder small { position: relative; z-index: 1; display: block; }
+.mangroves-map-placeholder strong { align-self: end; font-size: 1.2rem; }
+.mangroves-map-placeholder small { align-self: start; margin-top: .35rem; color: #66736c; }
+
+.mangroves-threat-list {
+  margin: 3rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mangroves-threat-list li {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 1rem;
+  align-items: center;
+  min-height: 5rem;
+  border-top: 1px solid #cbd7cf;
+}
+
+.mangroves-threat-list li:last-child { border-bottom: 1px solid #cbd7cf; }
+.mangroves-threat-list span { color: #8da095; font-size: .8rem; font-weight: 800; }
+.mangroves-threat-list strong { font-size: clamp(1.2rem,2.3vw,2rem); font-weight: 600; }
+
+.mangroves-research-cta {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: clamp(5rem, 10vw, 9rem) 1.25rem;
+  text-align: center;
+  scroll-margin-top: 8.5rem;
+}
+
+.mangroves-research-cta h2 { max-width: 13ch; margin-right: auto; margin-left: auto; }
+
+.mangroves-research-cta > p:not(.mangroves-eyebrow) {
+  max-width: 42rem;
+  margin: 1.4rem auto 0;
+  color: #66736c;
+  line-height: 1.7;
+}
+
+.mangroves-research-button {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  margin-top: 2rem;
+  padding: .9rem 1.3rem;
+  border-radius: 999px;
+  background: #174c3c;
+  color: #fff;
+  font-weight: 700;
+}
+
+.mangroves-research-button svg { width: 1rem; height: 1rem; }
+
+@media (max-width: 900px) {
+  .mangroves-section-nav { top: 72px; }
+  .mangroves-story-section--split,
+  .mangroves-health-band,
+  .mangroves-conservation-section,
+  .mangroves-malaysia-section { grid-template-columns: 1fr; }
+  .mangroves-value-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .mangroves-stats-grid { grid-template-columns: 1fr; }
+  .mangroves-health-media,
+  .mangroves-conservation-visual { min-height: 28rem; }
+  .mangroves-conservation-copy { order: 2; }
+  .mangroves-conservation-visual { order: 1; }
+}
+
+@media (max-width: 560px) {
+  .mangroves-section-nav { top: 68px; padding-right: .6rem; padding-left: .6rem; }
+  .mangroves-value-grid { grid-template-columns: 1fr; }
+  .mangroves-value-card { min-height: auto; }
+  .mangroves-value-card h3 { margin-top: 2rem; }
+  .mangrove-image-card { width: 15rem; }
+  .mangroves-health-copy,
+  .mangroves-conservation-copy { padding: 3rem 1.25rem; }
+  .mangroves-map-placeholder { min-height: 26rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mangrove-image-marquee { overflow-x: auto; }
+  .mangrove-image-track { animation: none; }
+  .mangrove-image-card img { transition: none; }
+}
