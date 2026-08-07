@@ -23,14 +23,15 @@ test('about page CSS contains the core editorial hooks and reduced-motion suppor
 });
 
 test('our story composition keeps the headline balanced against the body copy', async () => {
-  const source = await read('../css/about.css');
+  const source = await read('../css/about-story-refinement.css');
   assert.match(source, /\.about-intro-grid\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*1fr\)\s+minmax\(0,\s*1fr\)/);
   assert.match(source, /\.about-intro-grid h2\s*\{[\s\S]*?max-width:\s*31rem;[\s\S]*?font-size:\s*clamp\(2\.5rem,\s*3\.8vw,\s*3\.9rem\)/);
 });
 
-test('about stylesheet is loaded by the active entry document', async () => {
+test('about stylesheets are loaded by the active entry document', async () => {
   const source = await read('../index.html');
   assert.match(source, /\.\/css\/about\.css/);
+  assert.match(source, /\.\/css\/about-story-refinement\.css/);
 });
 
 test('feature router activates the redesigned About page without changing the route', async () => {
