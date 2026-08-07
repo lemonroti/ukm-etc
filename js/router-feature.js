@@ -1,9 +1,11 @@
 import { AboutPage, ResearchPage, WorkPackageDetailPage, MediaPage, MediaDetailPage, PublicationsPage, PublicationDetailPage, FaqPage, ContactPage } from './components.js';
 import { HomePageFeature } from './pages/HomePageFeature.js';
+import { MangrovesPage } from './pages/MangrovesPage.js';
 
 const routes = [
-  { path: '/', component: HomePageFeature, meta: { title: 'Home Preview' } },
+  { path: '/', component: HomePageFeature, meta: { title: 'Home' } },
   { path: '/about', component: AboutPage, meta: { title: 'About' } },
+  { path: '/mangroves', component: MangrovesPage, meta: { title: 'Mangroves' } },
   { path: '/research', component: ResearchPage, meta: { title: 'Research' } },
   { path: '/research/:slug', component: WorkPackageDetailPage, meta: { title: 'Work Package' } },
   { path: '/media', component: MediaPage, meta: { title: 'Media' } },
