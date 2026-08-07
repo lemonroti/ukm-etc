@@ -13,3 +13,22 @@ test('about page exposes the approved editorial sections and reuses project data
     assert.match(source, new RegExp(`id=\\"${id}\\"`));
   }
 });
+
+test('about page CSS contains the core editorial hooks and reduced-motion support', async () => {
+  const source = await read('../css/about.css');
+  for (const selector of ['.about-section-nav','.about-editorial-band','.about-statement-row','.about-team-card']) {
+    assert.match(source, new RegExp(selector.replace('.', '\\.')));
+  }
+  assert.match(source, /@media \(prefers-reduced-motion: reduce\)/);
+});
+
+test('about stylesheet is loaded by the active entry document', async () => {
+  const source = await read('../index.html');
+  assert.match(source, /\.\/css\/about\.css/);
+});
+
+test('feature router activates the redesigned About page without changing the route', async () => {
+  const source = await read('../js/router-feature.js');
+  assert.match(source, /import \{ AboutPageFeature \} from '\.\/pages\/AboutPageFeature\.js';/);
+  assert.match(source, /\{ path: '\/about', component: AboutPageFeature, meta: \{ title: 'About' \} \}/);
+});
