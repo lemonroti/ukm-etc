@@ -9,7 +9,7 @@ test('mangroves page exposes the complete storytelling sections', () => {
   for (const id of ['top','meaning','value','health','stats','malaysia','threats','conservation','research']) {
     assert.match(page, new RegExp(`id=\\"${id}\\"`));
   }
-  assert.match(page, /The superpower of mangroves/);
+  assert.match(page, /The superpower of(?:<br>|\s)*mangroves/);
   assert.match(page, /planetary health/i);
   assert.match(page, /Malaysia/i);
 });
